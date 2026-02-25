@@ -12,13 +12,15 @@ int main()
 
     if (pid == 0)
     {
+        sleep(10);
         for (i=0; i<20; i++)
-            printf("I am Child with pid=%d\n",getpid());
+            printf("I am Child\n");
+            printf("%d %d\n",getpid(),getppid());
     }
     else
     {
         printf("I am Parent\n");
         printf("%d\n",getpid());
-        while(1);
+        wait(NULL);
     }
 }
